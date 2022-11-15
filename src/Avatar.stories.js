@@ -5,6 +5,29 @@ import { Avatar } from "./Avatar";
 export default {
   title: "Design System/Avatar",
   component: Avatar,
+  argsTypes: {
+    size: {
+      control: {
+        type: 'select',
+      },
+      options: ['tiny', 'small', 'medium', 'large'],
+    },
+  },
+};
+
+/*
+ * New story using Controls
+ * Read more about Storybook templates at:
+ * https://storybook.js.org/docs/react/writing-stories/introduction#using-args
+ */
+const Template = args => <Avatar {...args}/>;
+
+export const Controls = Template.bind({});
+Controls.args = {
+  loading: false,
+  size: 'tiny',
+  username: 'My Fake User',
+  src: 'https://avatars2.githubusercontent.com/u/263385',
 };
 
 export const Standard = (args) => <Avatar {...args} />;
